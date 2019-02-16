@@ -3,6 +3,8 @@ node {
     git 'https://github.com/danites/SpringBootWithXmlRestAppVer'
     }
     stage('Compile-Package'){
-    sh 'mvn package'
+        //maven set up
+      def mvnhome = tool name: '', type: 'maven'
+        sh "${mvnhome}/bin/mvn package"
     }
 }
