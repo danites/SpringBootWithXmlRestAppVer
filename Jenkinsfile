@@ -1,10 +1,8 @@
-pipeline { 
-    agent any  
-    stages { 
-        stage('Build') { 
-            steps { 
-               echo 'This is a minimal pipeline.' 
-            }
-        }
+node { 
+    stage('SCM Checkout'){
+    git 'https://github.com/danites/SpringBootWithXmlRestAppVer'
+    }
+    stage('Compile-Package'){
+    sh 'mvn package'
     }
 }
